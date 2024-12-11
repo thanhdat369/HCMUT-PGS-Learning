@@ -1,0 +1,1 @@
+This project is excercise for the Machine Learning subject
