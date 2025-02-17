@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Đạt Lê Thành",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 9.6,
+      "left": 81.64,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -105.3,
+      "left": 4.2,
+      "attrs": { "temperature": "39.6", "humidity": "65" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 63.6,
+      "left": -44.2,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 168,
+      "left": -48.55,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    ["esp:TX", "$serialMonitor:RX", "", []],
+    ["esp:RX", "$serialMonitor:TX", "", []],
+    ["dht1:VCC", "esp:3V3", "red", ["v0"]],
+    ["dht1:GND", "esp:GND.1", "black", ["v0"]],
+    ["dht1:SDA", "esp:32", "green", ["v0"]],
+    ["led2:C", "esp:GND.1", "green", ["v57.6", "h115.45"]],
+    ["r1:1", "led2:A", "green", ["v0"]],
+    ["r1:2", "esp:25", "green", ["h48", "v-87.6"]]
+  ],
+  "dependencies": {}
+}
